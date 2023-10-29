@@ -1,4 +1,4 @@
-const express = require('events');
+const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
 
@@ -7,6 +7,8 @@ app.use(bodyParser.json());
 
 app.post('/events', (req,res)=>{
   const events = req.body;
+
+  console.log(events)
 
   axios.post('http://localhost:4000/events', events).catch(error=>{
     console.log(error.message);
