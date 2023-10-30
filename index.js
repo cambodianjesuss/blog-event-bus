@@ -10,7 +10,7 @@ app.use(cors());
 app.post('/events', (req,res)=>{
   const events = req.body;
 
-  console.log(`Event recieved: ${Object.values(events)}`);
+  console.log(`Event recieved: ${events.type}`);
 
   // Post Service Events
   axios.post('http://localhost:4000/events', events).catch(error=>{
