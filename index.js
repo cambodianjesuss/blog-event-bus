@@ -20,6 +20,10 @@ app.post('/events', (req,res)=>{
   axios.post('http://localhost:4001/events', events).catch(error=>{
     console.log(error.message);
   });
+  // Moderation Service Events
+  axios.post('http://localhost:4003/events', events).catch(error => {
+    console.log(error.message);
+  });
   //Query Service Events
   axios.post('http://localhost:4002/events', events).catch(error=>{
     console.log(error.message);
