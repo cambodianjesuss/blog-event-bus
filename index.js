@@ -17,19 +17,19 @@ app.post('/events', (req,res)=>{
   console.log(`Event recieved: ${event.type}`);
 
   // Post Service Events
-  axios.post('http://localhost:4000/events', events).catch(error=>{
+  axios.post('http://localhost:4000/events', event).catch(error=>{
     console.log(error.message);
   });
   // Comment Service Events
-  axios.post('http://localhost:4001/events', events).catch(error=>{
+  axios.post('http://localhost:4001/events', event).catch(error=>{
     console.log(error.message);
   });
    //Query Service Events
-   axios.post('http://localhost:4002/events', events).catch(error=>{
+   axios.post('http://localhost:4002/events', event).catch(error=>{
     console.log(error.message);
   });
   // Moderation Service Events
-  axios.post('http://localhost:4003/events', events).catch(error => {
+  axios.post('http://localhost:4003/events', event).catch(error => {
     console.log(error.message);
   });
   res.send({ status: "OK"});
