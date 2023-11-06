@@ -7,28 +7,36 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const events = [];
+
 app.post('/events', (req,res)=>{
-  const events = req.body;
+  const event = req.body;
+
+  events.push(event);
 
   console.log(`Event recieved: ${events.type}`);
 
   // Post Service Events
-  axios.post('http://localhost:4000/events', events).catch(error=>{
+  axios.post('http://localhost:4000/events', event).catch(error=>{
     console.log(error.message);
   });
   // Comment Service Events
-  axios.post('http://localhost:4001/events', events).catch(error=>{
+  axios.post('http://localhost:4001/events', event).catch(error=>{
     console.log(error.message);
   });
    //Query Service Events
-   axios.post('http://localhost:4002/events', events).catch(error=>{
+   axios.post('http://localhost:4002/events', event).catch(error=>{
     console.log(error.message);
   });
   // Moderation Service Events
-  axios.post('http://localhost:4003/events', events).catch(error => {
+  axios.post('http://localhost:4003/events', event).catch(error => {
     console.log(error.message);
   });
   res.send({ status: "OK"});
+});
+
+app.get('/events', (req, res)=>{
+  res.send(events);
 });
 
 app.listen(4005, ()=>{
