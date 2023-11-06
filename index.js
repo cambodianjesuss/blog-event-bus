@@ -14,7 +14,7 @@ app.post('/events', (req,res)=>{
 
   events.push(event);
 
-  console.log(`Event recieved: ${events.type}`);
+  console.log(`Event recieved: ${event.type}`);
 
   // Post Service Events
   axios.post('http://localhost:4000/events', event).catch(error=>{
