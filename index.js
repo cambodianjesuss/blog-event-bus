@@ -5,6 +5,7 @@ const axios = require("axios");
 const app = express();
 app.use(bodyParser.json());
 
+// Store all events in case of downed service
 const events = [];
 
 app.post("/events", (req, res) => {
