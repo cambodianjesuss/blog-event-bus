@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const app = express();
 app.use(bodyParser.json());
-// Should save history
+
 const events = [];
 
 app.post("/events", (req, res) => {
